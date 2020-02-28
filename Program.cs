@@ -9,9 +9,29 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            var result = CompressString("aabbbbbbc");
+            RotateMatrix90Deg(new int[5, 5] {
+                { 1, 2, 3, 4, 5 },
+                { 6, 7, 8, 9, 10 },
+                { 11, 12, 13, 14, 15 },
+                { 16, 17, 18, 19, 20 },
+                { 21, 22, 23, 24, 25 },
+            });
 
-            System.Console.WriteLine(result);
+            RotateMatrix90Deg(new int[4, 4] {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+                { 13, 14, 15, 16 },
+            });
+
+            RotateMatrix90Deg(new int[2, 2] {
+                { 1, 2 },
+                { 3, 4 },
+            });
+
+             RotateMatrix90Deg(new int[1, 1] {
+                { 1 },
+            });
         }
 
         static bool HasAllUniqueChars(string str)
@@ -302,6 +322,49 @@ namespace CrackingCodingInterview
             }
 
             return sb.Length < str.Length ? sb.ToString() : str;
+        }
+
+        static void RotateMatrix90Deg(int[,] nxnMatrix)
+        {
+            var N = nxnMatrix.GetUpperBound(0);
+            var M = nxnMatrix.GetUpperBound(1);
+
+            if (N != M)
+            {
+                throw new ArgumentException();
+            }
+
+            _PrintMatrix(nxnMatrix);
+
+            for (var i = 0; i <= N / 2; i++)
+            {
+                for (var j = i; j <= N - 1 - i; j++)
+                {
+                    var buf = nxnMatrix[i, j];
+                    nxnMatrix[i, j] = nxnMatrix[N - j, i];
+                    nxnMatrix[N - j, i] = nxnMatrix[N - i, N - j];
+                    nxnMatrix[N - i, N - j] = nxnMatrix[j, N - i];
+                    nxnMatrix[j, N - i] = buf;
+                }
+            }
+
+            _PrintMatrix(nxnMatrix);
+        }
+
+        static void _PrintMatrix(int[,] nxnMatrix)
+        {
+            var N = nxnMatrix.GetUpperBound(0);
+            var M = nxnMatrix.GetUpperBound(1);
+
+            for (var i = 0; i <= N; i++)
+            {
+                for (var j = 0; j <= M; j++)
+                {
+                    Console.Write(nxnMatrix[i, j].ToString().PadLeft(2) + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
         }
     }
 }
