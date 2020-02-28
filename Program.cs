@@ -9,28 +9,12 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            RotateMatrix90Deg(new int[5, 5] {
-                { 1, 2, 3, 4, 5 },
-                { 6, 7, 8, 9, 10 },
-                { 11, 12, 13, 14, 15 },
-                { 16, 17, 18, 19, 20 },
-                { 21, 22, 23, 24, 25 },
-            });
-
-            RotateMatrix90Deg(new int[4, 4] {
-                { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 },
-                { 9, 10, 11, 12 },
-                { 13, 14, 15, 16 },
-            });
-
-            RotateMatrix90Deg(new int[2, 2] {
-                { 1, 2 },
-                { 3, 4 },
-            });
-
-             RotateMatrix90Deg(new int[1, 1] {
-                { 1 },
+            ZeroMatrix(new int[5, 3] {
+                { 1, 2, 3 },
+                { 6, 7, 0 },
+                { 11, 12, 13 },
+                { 0, 17, 18 },
+                { 21, 22, 23 },
             });
         }
 
@@ -351,16 +335,52 @@ namespace CrackingCodingInterview
             _PrintMatrix(nxnMatrix);
         }
 
-        static void _PrintMatrix(int[,] nxnMatrix)
+        static void ZeroMatrix(int[,] nxmMatrix)
         {
-            var N = nxnMatrix.GetUpperBound(0);
-            var M = nxnMatrix.GetUpperBound(1);
+            _PrintMatrix(nxmMatrix);
+
+            var N = nxmMatrix.GetUpperBound(0);
+            var M = nxmMatrix.GetUpperBound(1);
+
+            var zeroedRows = new HashSet<int>();
+            var zeroedColumns = new HashSet<int>();
+
+            for (var r = 0; r <= N; r++)
+            {
+                for (var c = 0; c <= M; c++)
+                {
+                    if (nxmMatrix[r, c] == 0)
+                    {
+                        zeroedRows.Add(r);
+                        zeroedColumns.Add(c);
+                    }
+                }
+            }
+
+            for (var r = 0; r <= N; r++)
+            {
+                for (var c = 0; c <= M; c++)
+                {
+                    if (zeroedRows.Contains(r) || zeroedColumns.Contains(c)) 
+                    {
+                        nxmMatrix[r, c] = 0;
+                    }
+                }
+            }
+
+            _PrintMatrix(nxmMatrix);
+        }
+
+        static void _PrintMatrix(int[,] nxmMatrix)
+        {
+            var N = nxmMatrix.GetUpperBound(0);
+            var M = nxmMatrix.GetUpperBound(1);
 
             for (var i = 0; i <= N; i++)
             {
                 for (var j = 0; j <= M; j++)
                 {
-                    Console.Write(nxnMatrix[i, j].ToString().PadLeft(2) + " ");
+                    Console.Write(nxmMatrix[i, j].ToString().PadLeft(2) + " ");
                 }
                 Console.WriteLine();
             }
