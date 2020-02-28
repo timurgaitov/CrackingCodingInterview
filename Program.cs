@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CrackingCodingInterview
 {
@@ -8,7 +9,7 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            var result = IsStringOneEditAway("axa", "aba");
+            var result = CompressString("aabbbbbbc");
 
             System.Console.WriteLine(result);
         }
@@ -270,6 +271,37 @@ namespace CrackingCodingInterview
             }
 
             return false;
+        }
+
+        static string CompressString(string str)
+        {
+            var sb = new StringBuilder();
+
+            const char nullChar = '\0';
+
+            char countChar = nullChar;
+            var count = 0;
+
+            for (var i = 0; i <= str.Length; i++)
+            {
+                var ch = i == str.Length ? nullChar : str[i];
+
+                if (ch != countChar)
+                {
+                    if (countChar != nullChar)
+                    {
+                        sb.Append(count);
+                        count = 0;
+                    }
+
+                    countChar = ch;
+                    sb.Append(countChar);
+                }
+                
+                count++;
+            }
+
+            return sb.Length < str.Length ? sb.ToString() : str;
         }
     }
 }
