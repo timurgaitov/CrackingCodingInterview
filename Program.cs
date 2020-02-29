@@ -11,10 +11,10 @@ namespace CrackingCodingInterview
         {
             ZeroMatrix(new int[5, 3] {
                 { 1, 2, 3 },
-                { 6, 7, 0 },
-                { 11, 12, 13 },
-                { 0, 17, 18 },
-                { 21, 22, 23 },
+                { 6, 7, 8 },
+                { 0, 12, 13 },
+                { 16, 17, 18 },
+                { 21, 22, 0 },
             });
         }
 
@@ -342,8 +342,13 @@ namespace CrackingCodingInterview
             var N = nxmMatrix.GetUpperBound(0);
             var M = nxmMatrix.GetUpperBound(1);
 
-            var zeroedRows = new HashSet<int>();
-            var zeroedColumns = new HashSet<int>();
+            const int zeroCol = -1;
+            const int zeroRow = -2;
+
+            if (nxmMatrix[N, M] == 0)
+            {
+                nxmMatrix[N, M] = zeroRow | zeroCol;
+            }
 
             for (var r = 0; r <= N; r++)
             {
@@ -351,9 +356,12 @@ namespace CrackingCodingInterview
                 {
                     if (nxmMatrix[r, c] == 0)
                     {
-                        zeroedRows.Add(r);
-                        zeroedColumns.Add(c);
+                        nxmMatrix[r, M] = zeroRow;
+                        nxmMatrix[N, c] = zeroCol;
                     }
+
+                    Console.WriteLine($"Step ({r}, {c})");
+                    _PrintMatrix(nxmMatrix);
                 }
             }
 
@@ -361,7 +369,7 @@ namespace CrackingCodingInterview
             {
                 for (var c = 0; c <= M; c++)
                 {
-                    if (zeroedRows.Contains(r) || zeroedColumns.Contains(c)) 
+                    if ((nxmMatrix[r, M] & zeroRow) == zeroRow || (nxmMatrix[N, c] & zeroCol) == zeroCol) 
                     {
                         nxmMatrix[r, c] = 0;
                     }
