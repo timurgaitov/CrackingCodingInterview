@@ -9,13 +9,7 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            ZeroMatrix(new int[5, 3] {
-                { 1, 2, 3 },
-                { 6, 7, 8 },
-                { 0, 12, 13 },
-                { 16, 17, 18 },
-                { 21, 22, 0 },
-            });
+            Console.WriteLine(IsStringRotation("waterbottle", "ebottlewat"));
         }
 
         static bool HasAllUniqueChars(string str)
@@ -393,6 +387,53 @@ namespace CrackingCodingInterview
                 Console.WriteLine();
             }
             Console.WriteLine();
+        }
+
+        static bool IsStringRotation(string str1, string str2)
+        {
+            if (str1.Length != str2.Length)
+            {
+                return false;
+            }
+
+
+            var str1Canonical = _RotateStringToCanonicalForm(str1);
+            var str2Canonical = _RotateStringToCanonicalForm(str2);
+
+            return str1Canonical == str2Canonical; // uses IsSubstring
+        }
+
+        static string _RotateStringToCanonicalForm(string str)
+        {
+            var minPos = 0;
+
+            for (var i = 1; i < str.Length; i++)
+            {
+                if (str[i] < str[minPos])
+                {
+                    minPos = i;
+                }
+                else if (str[i] == str[minPos])
+                {
+                    for (var j = 1; j < str.Length; j++)
+                    {
+                        var strJ = str[(i + j) % str.Length];
+                        var minPosJ = str[(minPos + j) % str.Length];
+
+                        if (strJ < minPosJ)
+                        {
+                            minPos = i;
+                            break;
+                        }
+                        else if (strJ > minPosJ)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return str.Substring(minPos) + str.Substring(0, minPos);
         }
     }
 }
