@@ -9,7 +9,7 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Q_1_9_IsStringRotation("waterbottle", "erbottlewat"));
+            Q_2_1_RemoveDuplicatesFromLinkedList_WithoutAdditionalStructures();
         }
 
         static bool Q_1_1_HasAllUniqueChars(string str)
@@ -437,5 +437,86 @@ namespace CrackingCodingInterview
 
         //     return str.Substring(minPos) + str.Substring(0, minPos);
         // }
+
+        static void Q_2_1_RemoveDuplicatesFromLinkedList()
+        {
+            var l = new LinkedList<int>();
+            l.AddLast(1);
+            l.AddLast(1);
+            l.AddLast(2);
+            l.AddLast(3);
+            l.AddLast(1);
+            l.AddLast(2);
+
+            var hs = new HashSet<int>();
+
+            var p = l.First;
+
+            while (p != null)
+            {
+                var next = p.Next;
+
+                if (hs.Contains(p.Value))
+                {
+                    l.Remove(p);
+                }
+                else
+                {
+                    hs.Add(p.Value);
+                }
+
+                p = next;
+            }
+            
+            p = l.First;
+
+            while (p != null)
+            {
+                Console.WriteLine(p.Value);
+
+                p = p.Next;
+            }
+        }
+
+        static void Q_2_1_RemoveDuplicatesFromLinkedList_WithoutAdditionalStructures()
+        {
+            var l = new LinkedList<int>();
+            l.AddLast(1);
+            l.AddLast(1);
+            l.AddLast(2);
+            l.AddLast(3);
+            l.AddLast(1);
+            l.AddLast(2);
+
+            var p = l.First;
+
+            while (p != null)
+            {
+                var duplicateP = p.Next;
+
+                while (duplicateP != null)
+                {
+                    var next = duplicateP.Next;
+
+                    if (duplicateP.Value == p.Value)
+                    {
+                        l.Remove(duplicateP);
+                    }
+
+                    duplicateP = next;
+                }
+
+                p = p.Next;
+            }
+            
+            p = l.First;
+
+            while (p != null)
+            {
+                Console.WriteLine(p.Value);
+
+                p = p.Next;
+            }
+        }
     }
 }
