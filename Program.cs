@@ -9,10 +9,10 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(IsStringRotation("waterbottle", "erbottlewat"));
+            Console.WriteLine(Q_1_9_IsStringRotation("waterbottle", "erbottlewat"));
         }
 
-        static bool HasAllUniqueChars(string str)
+        static bool Q_1_1_HasAllUniqueChars(string str)
         {
             var hs = new HashSet<char>();
 
@@ -30,7 +30,7 @@ namespace CrackingCodingInterview
             return true;
         }
 
-        static bool HasAllUniqueChars_NoAdditionalStructures(string str)
+        static bool Q_1_1_HasAllUniqueChars_NoAdditionalStructures(string str)
         {
             ulong bits = 0;
 
@@ -78,7 +78,7 @@ namespace CrackingCodingInterview
             // return true;
         }
 
-        static bool IsPermutation(string str, string original) 
+        static bool Q_1_2_IsPermutation(string str, string original) 
         {
             if (str.Length != original.Length) 
             {
@@ -121,7 +121,7 @@ namespace CrackingCodingInterview
             return dict.Values.All(v => v == 0);
         }
 
-        static string UrlEncodeSpaces(string str, int strSize)
+        static string Q_1_3_UrlEncodeSpaces(string str, int strSize)
         {
             var arr = str.ToCharArray();
 
@@ -180,7 +180,7 @@ namespace CrackingCodingInterview
             return new string(arr);
         }
 
-        static bool IsPalindromPermutation(string str)
+        static bool Q_1_4_IsPalindromPermutation(string str)
         {
             long bits = 0;
 
@@ -214,7 +214,7 @@ namespace CrackingCodingInterview
             return true;
         }
 
-        static bool IsStringOneEditAway(string str1, string str2)
+        static bool Q_1_5_IsStringOneEditAway(string str1, string str2)
         {
             var lengthDiff = Math.Abs(str1.Length - str2.Length);
 
@@ -271,7 +271,7 @@ namespace CrackingCodingInterview
             return false;
         }
 
-        static string CompressString(string str)
+        static string Q_1_6_CompressString(string str)
         {
             var sb = new StringBuilder();
 
@@ -302,7 +302,7 @@ namespace CrackingCodingInterview
             return sb.Length < str.Length ? sb.ToString() : str;
         }
 
-        static void RotateMatrix90Deg(int[,] nxnMatrix)
+        static void Q_1_7_RotateMatrix90Deg(int[,] nxnMatrix)
         {
             var N = nxnMatrix.GetUpperBound(0);
             var M = nxnMatrix.GetUpperBound(1);
@@ -329,7 +329,7 @@ namespace CrackingCodingInterview
             _PrintMatrix(nxnMatrix);
         }
 
-        static void ZeroMatrix(int[,] nxmMatrix)
+        static void Q_1_8_ZeroMatrix(int[,] nxmMatrix)
         {
             _PrintMatrix(nxmMatrix);
 
@@ -389,7 +389,7 @@ namespace CrackingCodingInterview
             Console.WriteLine();
         }
 
-        static bool IsStringRotation(string str1, string str2)
+        static bool Q_1_9_IsStringRotation(string str1, string str2)
         {
             if (str1.Length != str2.Length)
             {
