@@ -9,7 +9,7 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            Q_2_1_RemoveDuplicatesFromLinkedList_WithoutAdditionalStructures();
+            Q_2_2_KthToLast();
         }
 
         static bool Q_1_1_HasAllUniqueChars(string str)
@@ -517,6 +517,36 @@ namespace CrackingCodingInterview
 
                 p = p.Next;
             }
+        }
+
+        static void Q_2_2_KthToLast()
+        {
+            var l = new LinkedList<int>();
+            l.AddLast(1);
+            l.AddLast(1);
+            l.AddLast(2);
+            l.AddLast(3);
+            l.AddLast(1);
+            l.AddLast(2);
+
+            for (var i = 0; i <= l.Count; i++)
+            {
+                int? result = null;
+                Q_2_2_KthToLast_Impl(l.First, i, ref result);
+                Console.WriteLine(result?.ToString() ?? "out of range");
+            }
+        }
+
+        static int Q_2_2_KthToLast_Impl(LinkedListNode<int> node, int k, ref int? result)
+        {
+            var revI = node.Next == null ? 0 : Q_2_2_KthToLast_Impl(node.Next, k, ref result) + 1;
+
+            if (revI == k)
+            {
+                result = node.Value;
+            }
+
+            return revI;
         }
     }
 }
