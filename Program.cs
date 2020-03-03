@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using CrackingCodingInterview.Problems;
 
 namespace CrackingCodingInterview
 {
@@ -9,7 +10,7 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            Q_2_2_KthToLast_Iteratively();
+            P_2_4_Partition.Solve();
         }
 
         static bool Q_1_1_HasAllUniqueChars(string str)
@@ -582,6 +583,29 @@ namespace CrackingCodingInterview
             }
 
             Console.WriteLine(kth?.Value);
+        }
+
+        static void Q_2_3_DeleteMiddleNode()
+        {
+            var l = new LinkedList<int>();
+            l.AddLast(1);
+            l.AddLast(2);
+            l.AddLast(3);
+            l.AddLast(4);
+            l.AddLast(5);
+            l.AddLast(6);
+
+            var node = l.First.Next.Next;
+
+            while (node.Next != null)
+            {
+                node.Value = node.Next.Value;
+                node = node.Next;
+            }
+
+            l.Remove(node);
+
+            Console.WriteLine(string.Join(", ", l.ToArray()));
         }
     }
 }
