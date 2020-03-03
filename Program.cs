@@ -9,7 +9,7 @@ namespace CrackingCodingInterview
     {
         static void Main(string[] args)
         {
-            Q_2_2_KthToLast();
+            Q_2_2_KthToLast_Iteratively();
         }
 
         static bool Q_1_1_HasAllUniqueChars(string str)
@@ -523,11 +523,11 @@ namespace CrackingCodingInterview
         {
             var l = new LinkedList<int>();
             l.AddLast(1);
-            l.AddLast(1);
             l.AddLast(2);
             l.AddLast(3);
-            l.AddLast(1);
-            l.AddLast(2);
+            l.AddLast(4);
+            l.AddLast(5);
+            l.AddLast(6);
 
             for (var i = 0; i <= l.Count; i++)
             {
@@ -547,6 +547,41 @@ namespace CrackingCodingInterview
             }
 
             return revI;
+        }
+
+        static void Q_2_2_KthToLast_Iteratively()
+        {
+            var l = new LinkedList<int>();
+            l.AddLast(1);
+            l.AddLast(2);
+            l.AddLast(3);
+            l.AddLast(4);
+            l.AddLast(5);
+            l.AddLast(6);
+
+            const int k = 2;
+
+            var node = l.First;
+            var i = 0;
+
+            LinkedListNode<int> kth = null;
+
+            while (node != null)
+            {
+                if (kth == null && i == k)
+                {
+                    kth = l.First;
+                }
+                else if (kth != null)
+                {
+                    kth = kth.Next;
+                }
+
+                node = node.Next;
+                i++;
+            }
+
+            Console.WriteLine(kth?.Value);
         }
     }
 }
