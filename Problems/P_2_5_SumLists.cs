@@ -6,8 +6,8 @@ namespace CrackingCodingInterview.Problems
     {
         public static void Solve()
         {
-            var head1 = SinglyLinkedListNode<int>.CreateSinglyLinkedList(7, 1, 6);
-            var head2 = SinglyLinkedListNode<int>.CreateSinglyLinkedList(5, 9, 2);
+            var head1 = SinglyLinkedListNode<int>.CreateSinglyLinkedList(9, 7, 8);
+            var head2 = SinglyLinkedListNode<int>.CreateSinglyLinkedList(6, 8, 5);
             SinglyLinkedListNode<int> sumHead = null;
             SinglyLinkedListNode<int> sumNode = null;
 
@@ -49,6 +49,11 @@ namespace CrackingCodingInterview.Problems
 
                 node1 = node1?.Next;
                 node2 = node2?.Next;
+            }
+
+            if (overS > 0)
+            {
+                sumNode.Next = new SinglyLinkedListNode<int>(overS);
             }
             
             sumHead.Print();
