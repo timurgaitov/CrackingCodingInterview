@@ -10,7 +10,7 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-            P_2_5_SumLists.Solve();
+            P_2_5_SumLists_2.Solve();
         }
 
         static bool Q_1_1_HasAllUniqueChars(string str)
