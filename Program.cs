@@ -6,11 +6,11 @@ using CrackingCodingInterview.Problems;
 
 namespace CrackingCodingInterview
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            P_2_4_Partition.Solve();
+            P_2_5_SumLists.Solve();
         }
 
         static bool Q_1_1_HasAllUniqueChars(string str)

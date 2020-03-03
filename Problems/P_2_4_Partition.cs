@@ -7,15 +7,7 @@ namespace CrackingCodingInterview.Problems
     {
         public static void Solve()
         {
-            var head = new SinglyLinkedListNode<int>(3);
-
-            head
-                .AddNext(5)
-                .AddNext(8)
-                .AddNext(5)
-                .AddNext(10)
-                .AddNext(2)
-                .AddNext(1);
+            var head = SinglyLinkedListNode<int>.CreateSinglyLinkedList(3, 5, 8, 5, 10, 2, 1);
 
             const int partition = 5;
 
