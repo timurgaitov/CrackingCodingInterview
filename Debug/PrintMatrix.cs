@@ -2,7 +2,7 @@ using System;
 
 namespace CrackingCodingInterview.Debug
 {
-    internal static class MatrixPrint
+    internal static class PrintMatrix
     {
         public static void Print(this int[,] nxmMatrix)
         {
