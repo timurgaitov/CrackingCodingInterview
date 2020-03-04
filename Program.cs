@@ -6,7 +6,7 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-            P_3_4_QueueViaStacks.Solve();
+            P_3_5_SortStack.Solve();
         }
     }
 }
