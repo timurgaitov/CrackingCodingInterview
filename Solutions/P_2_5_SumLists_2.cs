@@ -1,9 +1,8 @@
-using System;
 using CrackingCodingInterview.Structures;
 
-namespace CrackingCodingInterview.Problems
+namespace CrackingCodingInterview.Solutions
 {
-    public static class P_2_5_SumLists_2
+    internal static class P_2_5_SumLists_2
     {
         public static void Solve()
         {

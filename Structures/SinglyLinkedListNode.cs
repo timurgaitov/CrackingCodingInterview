@@ -2,7 +2,7 @@ using System;
 
 namespace CrackingCodingInterview.Structures
 {
-    class SinglyLinkedListNode<T>
+    internal class SinglyLinkedListNode<T>
     {
         public static SinglyLinkedListNode<T> CreateSinglyLinkedList<T>(params T[] values)
         {

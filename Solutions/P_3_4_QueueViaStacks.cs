@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace CrackingCodingInterview.Problems
+namespace CrackingCodingInterview.Solutions
 {
-    public static class P_3_4_QueueViaStacks
+    internal static class P_3_4_QueueViaStacks
     {
         private class Queue
         {

@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 
-namespace CrackingCodingInterview.Problems
+namespace CrackingCodingInterview.Solutions
 {
-    public static class P_3_1_ThreeInOne
+    internal static class P_3_1_ThreeInOne
     {
         private class ThreeInOneStack
         {

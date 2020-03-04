@@ -1,8 +1,8 @@
 using System;
 
-namespace CrackingCodingInterview.Problems
+namespace CrackingCodingInterview.Solutions
 {
-    public static class P_3_2_StackMin
+    internal static class P_3_2_StackMin
     {
         private class StackMinNode
         {

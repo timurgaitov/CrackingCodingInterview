@@ -1,9 +1,9 @@
 using System;
 using CrackingCodingInterview.Structures;
 
-namespace CrackingCodingInterview.Problems
+namespace CrackingCodingInterview.Solutions
 {
-    internal class P_2_4_Partition
+    internal static class P_2_4_Partition
     {
         public static void Solve()
         {
