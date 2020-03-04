@@ -1,5 +1,4 @@
 using System;
-using CrackingCodingInterview.Structures;
 
 namespace CrackingCodingInterview.Problems
 {
@@ -14,28 +13,28 @@ namespace CrackingCodingInterview.Problems
         
         private class StackMin
         {
-            private StackMinNode _top;
+            private StackMinNode top;
 
             public void Push(int value)
             {
                 var newTop = new StackMinNode
                 {
-                    Next = _top,
+                    Next = top,
                     Value = value,
                 };
                 
-                newTop.Min = _top == null || value < _top.Min.Value ? newTop : _top.Min;
+                newTop.Min = top == null || value < top.Min.Value ? newTop : top.Min;
                 
-                _top = newTop;
+                top = newTop;
 
                 Console.WriteLine(Min());
             }
 
             public int? Pop()
             {
-                var top = _top;
+                var top = this.top;
                 
-                _top = _top?.Next;
+                this.top = this.top?.Next;
                 
                 Console.WriteLine(Min());
 
@@ -44,7 +43,7 @@ namespace CrackingCodingInterview.Problems
 
             public int? Min()
             {
-                return _top?.Min.Value;
+                return top?.Min.Value;
             }
         }
         
