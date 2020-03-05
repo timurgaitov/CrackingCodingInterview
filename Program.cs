@@ -1,5 +1,6 @@
 ﻿using CrackingCodingInterview.Solutions;
 using CrackingCodingInterview.Structures;
+using CrackingCodingInterview.Algorithms;
 
 namespace CrackingCodingInterview
 {
@@ -7,24 +8,30 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-             var minHeap = new MinHeap();
-             
-             minHeap.Insert(9);
-             minHeap.Print();
-             minHeap.Insert(7);
-             minHeap.Print();
-             minHeap.Insert(4);
-             minHeap.Print();
-             minHeap.Insert(1);
-             minHeap.Print();
-             minHeap.Insert(18);
-             minHeap.Print();
-             minHeap.Insert(11);
-             minHeap.Print();
-             minHeap.Insert(0);
-             minHeap.Print();
-             minHeap.ExtractMin();
-             minHeap.Print();
+            var node0 = new GraphNode<int>(0);
+            var node1 = new GraphNode<int>(1);
+            var node2 = new GraphNode<int>(2);
+            var node3 = new GraphNode<int>(3);
+            var node4 = new GraphNode<int>(4);
+            var node5 = new GraphNode<int>(5);
+            var node6 = new GraphNode<int>(6);
+            var node7 = new GraphNode<int>(7);
+
+            node0.AdjacentNodes.Add(node2);
+            node1.AdjacentNodes.Add(node3);
+            node3.AdjacentNodes.Add(node1);
+            node3.AdjacentNodes.Add(node5);
+            node4.AdjacentNodes.Add(node2);
+            node4.AdjacentNodes.Add(node6);
+            node4.AdjacentNodes.Add(node7);
+            node5.AdjacentNodes.Add(node3);
+            node5.AdjacentNodes.Add(node6);
+            node5.AdjacentNodes.Add(node7);
+            node6.AdjacentNodes.Add(node2);
+            node6.AdjacentNodes.Add(node4);
+            node7.AdjacentNodes.Add(node6);
+
+            DepthFirstSearch.Search(new[] { node0, node1, node2, node3, node4, node5, node6, node7 });
         }
     }
 }
