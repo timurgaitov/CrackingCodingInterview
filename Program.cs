@@ -22,7 +22,6 @@ namespace CrackingCodingInterview
             node2.AdjacentNodes.Add(node0);
             node2.AdjacentNodes.Add(node1);
             node2.AdjacentNodes.Add(node4);
-            node1.AdjacentNodes.Add(node3);
             node3.AdjacentNodes.Add(node1);
             node3.AdjacentNodes.Add(node5);
             node4.AdjacentNodes.Add(node2);
