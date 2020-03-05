@@ -4,20 +4,20 @@ using CrackingCodingInterview.Structures;
 
 namespace CrackingCodingInterview.Algorithms
 {
-    public static class DepthFirstSearch
+    public static class BreadthFirstSearch
     {
         public static void Search<T>(IList<GraphNode<T>> nodes)
         {
             var visited = new HashSet<GraphNode<T>>();
-            var stack = new Stack<GraphNode<T>>();
+            var queue = new Queue<GraphNode<T>>();
 
             foreach (var startNode in nodes)
             {
-                stack.Push(startNode);
+                queue.Enqueue(startNode);
 
-                while (stack.Count > 0)
+                while (queue.Count > 0)
                 {
-                    var node = stack.Pop();
+                    var node = queue.Dequeue();
 
                     if (visited.Contains(node))
                     {
@@ -30,7 +30,7 @@ namespace CrackingCodingInterview.Algorithms
 
                     foreach (var adjacentNode in node.AdjacentNodes)
                     {
-                        stack.Push(adjacentNode);
+                        queue.Enqueue(adjacentNode);
                     }
                 }
             }

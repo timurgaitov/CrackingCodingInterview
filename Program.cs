@@ -19,6 +19,10 @@ namespace CrackingCodingInterview
 
             node0.AdjacentNodes.Add(node2);
             node1.AdjacentNodes.Add(node3);
+            node2.AdjacentNodes.Add(node0);
+            node2.AdjacentNodes.Add(node1);
+            node2.AdjacentNodes.Add(node4);
+            node1.AdjacentNodes.Add(node3);
             node3.AdjacentNodes.Add(node1);
             node3.AdjacentNodes.Add(node5);
             node4.AdjacentNodes.Add(node2);
@@ -31,7 +35,7 @@ namespace CrackingCodingInterview
             node6.AdjacentNodes.Add(node4);
             node7.AdjacentNodes.Add(node6);
 
-            DepthFirstSearch.Search(new[] { node0, node1, node2, node3, node4, node5, node6, node7 });
+            BreadthFirstSearch.Search(new[] { node0, node1, node2, node3, node4, node5, node6, node7 });
         }
     }
 }
