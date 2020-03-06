@@ -4,7 +4,7 @@ namespace CrackingCodingInterview.Structures
 {
     internal class SinglyLinkedListNode<T>
     {
-        public static SinglyLinkedListNode<T> CreateSinglyLinkedList<T>(params T[] values)
+        public static SinglyLinkedListNode<T> CreateSinglyLinkedList(params T[] values)
         {
             if (values.Length == 0)
             {
