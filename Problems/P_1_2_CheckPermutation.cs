@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_1_2_CheckPermutation
     {

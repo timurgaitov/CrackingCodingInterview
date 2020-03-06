@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_2_2_ReturnKthToLast_2
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_1_3_Urlify
     {

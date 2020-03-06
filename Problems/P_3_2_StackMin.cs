@@ -1,6 +1,6 @@
 using System;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_3_2_StackMin
     {

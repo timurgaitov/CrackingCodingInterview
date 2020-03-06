@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_1_6_StringCompression
     {

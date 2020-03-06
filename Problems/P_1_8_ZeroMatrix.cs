@@ -1,7 +1,7 @@
 ﻿using System;
 using CrackingCodingInterview.Debug;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_1_8_ZeroMatrix
     {

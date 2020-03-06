@@ -1,5 +1,4 @@
-﻿using CrackingCodingInterview.Solutions;
-using CrackingCodingInterview.Structures;
+﻿using CrackingCodingInterview.Structures;
 using CrackingCodingInterview.Algorithms;
 
 namespace CrackingCodingInterview

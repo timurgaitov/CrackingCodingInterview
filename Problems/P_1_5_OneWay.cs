@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_1_5_OneWay
     {

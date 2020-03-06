@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CrackingCodingInterview.Solutions
+namespace CrackingCodingInterview.Problems
 {
     internal static class P_1_1_IsUnique
     {
