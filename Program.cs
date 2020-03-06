@@ -6,7 +6,7 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-            P_4_2_MinimalTree.Solve();
+            P_4_3_ListOfDepths.Solve();
         }
     }
 }

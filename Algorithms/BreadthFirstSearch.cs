@@ -6,15 +6,15 @@ namespace CrackingCodingInterview.Algorithms
 {
     public static class BreadthFirstSearch
     {
-        public static IEnumerable<GraphNode<T>> SearchStartingFrom<T>(GraphNode<T> startNode)
+        public static IEnumerable<T> SearchStartingFrom<T>(T startNode) where T : IBreadthFirstSearchable<T>
         {
             return Search<T>(new[] { startNode });
         }
 
-        public static IEnumerable<GraphNode<T>> Search<T>(IList<GraphNode<T>> nodes)
+        public static IEnumerable<T> Search<T>(IList<T> nodes) where T : IBreadthFirstSearchable<T>
         {
-            var visited = new HashSet<GraphNode<T>>();
-            var queue = new Queue<GraphNode<T>>();
+            var visited = new HashSet<T>();
+            var queue = new Queue<T>();
 
             foreach (var startNode in nodes)
             {

@@ -10,7 +10,7 @@ namespace CrackingCodingInterview.Problems
 {
     internal static class P_4_2_MinimalTree
     {
-        public static void Solve()
+        public static BinaryTreeNode<int> Solve()
         {
             var array = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
 
@@ -26,6 +26,8 @@ namespace CrackingCodingInterview.Problems
             BuildRight(root.Right, 0, array, right);
 
             root.Print();
+
+            return root;
         }
 
         private static void BuildLeft(BinaryTreeNode<int> node, int nodeIndex, int[] array, int startPos)

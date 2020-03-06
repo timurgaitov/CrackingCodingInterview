@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace CrackingCodingInterview.Structures
 {
-    public class GraphNode<T>
+    public class GraphNode<T> : IBreadthFirstSearchable<GraphNode<T>>
     {
         public GraphNode(T value)
         {
@@ -10,11 +10,11 @@ namespace CrackingCodingInterview.Structures
         }
 
         public T Value { get; set; }
-        public List<GraphNode<T>> AdjacentNodes { get; } = new List<GraphNode<T>>();
+        public IEnumerable<GraphNode<T>> AdjacentNodes { get; } = new List<GraphNode<T>>();
 
         public void AddAdjacentNodes(params GraphNode<T>[] adjacentNodes)
         {
-            AdjacentNodes.AddRange(adjacentNodes);
+            (AdjacentNodes as List<GraphNode<T>>).AddRange(adjacentNodes);
         }
     }
 }
