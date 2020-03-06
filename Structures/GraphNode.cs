@@ -11,5 +11,10 @@ namespace CrackingCodingInterview.Structures
 
         public T Value { get; set; }
         public List<GraphNode<T>> AdjacentNodes { get; } = new List<GraphNode<T>>();
+
+        public void AddAdjacentNodes(params GraphNode<T>[] adjacentNodes)
+        {
+            AdjacentNodes.AddRange(adjacentNodes);
+        }
     }
 }

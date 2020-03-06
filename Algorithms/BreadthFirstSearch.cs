@@ -6,7 +6,12 @@ namespace CrackingCodingInterview.Algorithms
 {
     public static class BreadthFirstSearch
     {
-        public static void Search<T>(IList<GraphNode<T>> nodes)
+        public static IEnumerable<GraphNode<T>> SearchStartingFrom<T>(GraphNode<T> startNode)
+        {
+            return Search<T>(new[] { startNode });
+        }
+
+        public static IEnumerable<GraphNode<T>> Search<T>(IList<GraphNode<T>> nodes)
         {
             var visited = new HashSet<GraphNode<T>>();
             var queue = new Queue<GraphNode<T>>();
@@ -26,7 +31,7 @@ namespace CrackingCodingInterview.Algorithms
 
                     visited.Add(node);
                     
-                    Console.WriteLine(node.Value);
+                    yield return node;
 
                     foreach (var adjacentNode in node.AdjacentNodes)
                     {
