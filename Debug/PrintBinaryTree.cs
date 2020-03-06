@@ -43,6 +43,11 @@ namespace CrackingCodingInterview.Debug
                 }
             }
 
+            if (buf.Count > 0)
+            {
+                lines.Add(buf);
+            }
+
             for (var i = 0; i < lines.Count; i++)
             {
                 for (var j = 0; j < lines[i].Count; j++)
