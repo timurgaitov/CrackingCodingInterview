@@ -14,30 +14,35 @@ namespace CrackingCodingInterview.Problems
         {
             var root = P_4_2_MinimalTree.Solve();
 
-            var bfs = BreadthFirstSearch.SearchStartingFrom(root);
-
-            var count = 0;
-
             var list = new List<LinkedList<BinaryTreeNode<int>>>();
-            var buf = new LinkedList<BinaryTreeNode<int>>();
 
-            foreach (var node in bfs)
-            {
-                buf.AddLast(node);
-                count++;
-
-                if ((count + 1).IsPowerOfTwo())
-                {
-                    list.Add(buf);
-                    buf = new LinkedList<BinaryTreeNode<int>>();
-                }
-            }
+            DFS(root, 0, list);
 
             Console.WriteLine(list.Count);
 
             for (var i = 0; i < list.Count; i++)
             {
                 Console.WriteLine($"{i}: {list[i].Count()}");
+            }
+        }
+
+        private static void DFS(BinaryTreeNode<int> node, int depth, List<LinkedList<BinaryTreeNode<int>>> list)
+        {
+            if (depth >= list.Count)
+            {
+                list.Add(new LinkedList<BinaryTreeNode<int>>());
+            }
+            
+            list[depth].AddLast(node);
+
+            if (node.Left != null)
+            {
+                DFS(node.Left, depth + 1, list);
+            }
+
+            if (node.Right != null)
+            {
+                DFS(node.Right, depth + 1, list);
             }
         }
     }
