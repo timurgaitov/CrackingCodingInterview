@@ -27,6 +27,8 @@ namespace CrackingCodingInterview.Problems
                 },
             };
 
+            root = P_4_2_MinimalTree.Solve();
+
             var isBst = IsBst(root, null, null);
 
             Console.WriteLine(isBst);
