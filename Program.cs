@@ -6,7 +6,7 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-            P_4_6_Successor.Solve();
+            P_4_7_BuildOrder.Solve();
         }
     }
 }
