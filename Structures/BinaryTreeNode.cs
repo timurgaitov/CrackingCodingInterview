@@ -52,4 +52,6 @@ public class BinaryTreeNode<T> : IBreadthFirstSearchable<BinaryTreeNode<T>>
             }
         } 
     }
+
+    public bool IsLeaf => Left == null && Right == null;
 }

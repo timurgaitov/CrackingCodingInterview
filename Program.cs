@@ -6,7 +6,7 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-            P_4_9_BSTSequences.Solve();
+            P_4_10_CheckSubtree.Solve();
         }
     }
 }
