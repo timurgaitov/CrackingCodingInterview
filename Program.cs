@@ -1,4 +1,6 @@
-﻿using CrackingCodingInterview.Problems;
+﻿using System;
+using CrackingCodingInterview.Algorithms;
+using CrackingCodingInterview.Structures;
 
 namespace CrackingCodingInterview
 {
@@ -6,7 +8,11 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-            P_4_10_CheckSubtree.Solve();
+            var test = new [] { 5, 4, 1, 2, 3, 2, 19 };
+
+            Console.WriteLine(string.Join(" ", test));
+            HeapSort.Sort(test);
+            Console.WriteLine(string.Join(" ", test));
         }
     }
 }
