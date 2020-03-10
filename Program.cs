@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using CrackingCodingInterview.Algorithms;
 using CrackingCodingInterview.Structures;
 
@@ -8,13 +10,51 @@ namespace CrackingCodingInterview
     {
         public static void Main(string[] args)
         {
-            PrintSpiral(0);
-            PrintSpiral(1);
-            PrintSpiral(2);
-            PrintSpiral(3);
-            PrintSpiral(4);
-            PrintSpiral(5);
-            PrintSpiral(6);
+            PrintLookAndSay("1", 15);
+        }
+
+        private static void PrintLookAndSay(string seed, int take)
+        {
+            Console.WriteLine(seed);
+
+            var current = seed;
+            var printed = 0;
+
+            while (printed < take)
+            {
+                var last = '$';
+                var counter = 0;
+                var output = new StringBuilder();
+
+                for (var i = 0; i < current.Length; i++)
+                {
+                    var cur = current[i];
+
+                    if (cur == last)
+                    {
+                        counter++;
+                    }
+                    else if (last != '$')
+                    {
+                        output.Append($"{counter}{last}");
+                        counter = 1;
+                    }
+                    else
+                    {
+                        counter = 1;
+                    }
+
+                    last = cur;
+                }
+                output.Append($"{counter}{last}");
+
+                var print = output.ToString();
+
+                Console.WriteLine(print);
+                current = print;
+
+                printed++;
+            }
         }
 
         private static void PrintSpiral(int n)
